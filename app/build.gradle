@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 31
+    //buildToolsVersion "31.0.0 rc1"
+
+    defaultConfig {
+        applicationId "com.sergey.los.freelanceideas.renderings"
+        minSdkVersion 24
+        targetSdkVersion 31
+
+
+        versionCode 1
+        versionName "1.0"
+
+      //  testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++20 " // -Ofast  -fsanitize=memory
+            }
+        }
+
+        ndk { abiFilters 'arm64-v8a' }
+        ndkVersion '24.0.7956693'  // was 23.1.7779620
+    }
+
+
+    flavorDimensions "api"
+
+    productFlavors {
+        minApi30 {
+            minSdkVersion "30"
+            versionNameSuffix "-minApi30"
+        }
+
+        minApi24 {
+            minSdkVersion "24"
+            versionNameSuffix "-minApi24"
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled true
+            shrinkResources false
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+            version "3.18.1" // was 3.18.1
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs {
+                srcDir "Q:\\AndroidSDK\\ndk\\22.0.7026061\\sources\\third_party\\vulkan\\src\\build-android\\jniLibs"
+            }
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    ndkVersion '24.0.7956693 rc2'
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.7.0'
+
+}
