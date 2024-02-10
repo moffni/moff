@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "423222122698",
+    "project_id": "my-isklad",
+    "storage_bucket": "my-isklad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423222122698:android:e66710df7b1fbb3884bc33",
+        "android_client_info": {
+          "package_name": "los.worklast.isklad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfwwIM2cgL_xsUOPHNgCUmtscvavy6Mks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
